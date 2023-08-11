@@ -1,7 +1,25 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe Place do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'when validating' do
+    let(:place) { described_class.new }
+
+    it 'requires a name' do
+      place.valid?
+
+      expect(place.errors[:name]).to include(/blank/)
+    end
+
+    it 'requires a longitude' do
+      place.valid?
+
+      expect(place.errors[:longitude]).to include(/blank/)
+    end
+
+    it 'requires a latitude' do
+      place.valid?
+
+      expect(place.errors[:latitude]).to include(/blank/)
+    end
+  end
 end

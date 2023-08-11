@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :place do
-    name { 'MyString' }
+    name { 'Place name' }
     latitude { '9.99' }
     longitude { '9.99' }
   end
