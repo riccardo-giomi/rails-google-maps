@@ -3,6 +3,19 @@
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
+  # Read environment variables from `config/local_env.yml`.
+  # Used only in development as an alternative way to set the Google API key.
+  # NOTE: the value defined in the file will take precedence over values defined
+  # in other ways.
+  config.before_configuration do
+    env_file = Rails.root.join('config/local_env.yml').to_s
+    if File.exist?(env_file)
+      YAML.load(File.open(env_file)).each do |key, value|
+        ENV[key.to_s] = value
+      end
+    end
+  end
+
   # Let RuboCop autocorrect files from generators:
   # https://github.com/rubocop/rubocop-rails#rails-configuration-tip
   config.generators.after_generate do |files|

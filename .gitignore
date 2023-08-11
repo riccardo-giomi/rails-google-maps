@@ -29,3 +29,6 @@
 
 # Ignore temporary RSpec files
 spec/examples.txt
+
+# Ignore Rails environment variables file.
+config/local_env.yml

@@ -27,7 +27,29 @@ for instructions on how to configure a specific DBMS.
 
 - \* **with headers, -dev packages, etc.**
 
+### A Google API key is required
+
+You'll need to provide a Google API key enabled to use the "Maps JavaScript API"
+and "Places API" services.
+
 ## Local installation
+
+Provide a Google API key.
+
+The application expects an environment variable called `GOOGLE_API_KEY` to work
+and it should be set to a valid key.
+
+There are multiple ways and tools to set environment variables in a Rails
+project, but the application provides the option to create a
+`config/local_env.yml` file that will be used _in development only_ to create
+environment variables as defined:
+
+```yaml
+GOOGLE_API_KEY: "my-api-key"
+```
+
+The `config/local_env.yml` file is already ignored by git in the application
+`.gitignore` file.
 
 Create the database with:
 
