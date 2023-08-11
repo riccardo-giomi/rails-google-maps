@@ -1,0 +1,21 @@
+div id="#{dom_id place}"
+  p.my-5
+    strong.block.font-medium.mb-1
+      | Name:
+
+    =< place.name
+  p.my-5
+    strong.block.font-medium.mb-1
+      | Latitude:
+
+    =< place.latitude
+  p.my-5
+    strong.block.font-medium.mb-1
+      | Longitude:
+
+    =< place.longitude
+
+  - if action_name != 'show'
+    = link_to 'Show this place', place, class: 'rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium'
+    = link_to 'Edit this place', edit_place_path(place), class: 'rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium'
+    hr.mt-6
