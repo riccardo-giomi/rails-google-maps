@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe 'places/new' do
   before do
     assign(:place, Place.new(
@@ -11,7 +9,7 @@ RSpec.describe 'places/new' do
                    ))
   end
 
-  it 'renders new place form' do
+  it 'renders new place form' do # rubocop:disable RSpec/ExampleLength
     render
 
     assert_select 'form[action=?][method=?]', places_path, 'post' do

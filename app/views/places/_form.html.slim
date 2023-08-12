@@ -1,4 +1,4 @@
-= form_with(model: @place, class: 'contents') do |form|
+= form_with(model: @place, class: 'contents', local: true, data: { controller: 'maps', action: 'google-maps-callback@window->maps#initializeMap' }) do |form|
   - if @place.errors.any?
     #error_explanation.bg-red-50.text-red-500.px-3.py-2.font-medium.rounded-lg.mt-3
       h2
@@ -13,12 +13,22 @@
     = form.text_field :name, class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full'
 
   .my-5
+    = form.label :search
+    = form.text_field :search, name: nil,
+                               class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full',
+                               data: { maps_target: 'search', action: 'keydown->maps#disableEventOnEnter' }
+
+  .my-5
     = form.label :latitude
-    = form.text_field :latitude, class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full'
+    = form.text_field :latitude, class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full',
+                                 data: { maps_target: 'latitude' }
 
   .my-5
     = form.label :longitude
-    = form.text_field :longitude, class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full'
+    = form.text_field :longitude, class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full',
+                                  data: { maps_target: 'longitude' }
+
+  .map data-maps-target="map"
 
   .inline
     = form.submit class: 'rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer'

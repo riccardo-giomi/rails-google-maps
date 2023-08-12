@@ -9,6 +9,9 @@ html
 
     = stylesheet_link_tag 'tailwind', 'inter-font', 'data-turbo-track': 'reload'
     = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
+
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{google_api_key}&libraries=places&callback=dispatchMapsEvent",
+                                async: true, defer: true, "data-turbolinks-eval": false
     = javascript_importmap_tags
 
   body

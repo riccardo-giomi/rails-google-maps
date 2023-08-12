@@ -3,7 +3,8 @@
 A Ruby on Rails 7.0.6 application that uses the Google Maps API to find and save
 places.
 
-It is an exercised based on this [video tutorial](https://www.youtube.com/watch?v=UtgwdLiJ5hA)
+It is an exercised based on this
+[tutorial](https://www.driftingruby.com/episodes/google-maps-api-with-stimulusjs)
 from Drifting Ruby.
 
 ## Versions and requirements
@@ -29,8 +30,19 @@ for instructions on how to configure a specific DBMS.
 
 ### A Google API key is required
 
-You'll need to provide a Google API key enabled to use the "Maps JavaScript API"
-and "Places API" services.
+The application requires a valid Google API key.
+The corresponding account will require the following services to be active:
+
+- Maps JavaScript API
+- Maps Static API
+- Places API
+
+If the key has restrictions, as it should have, then the previous services will
+need to be enable for the API key as well.
+
+Additionally _Website restrictions_ will need to allow for the application URL,
+which locally is going to be `http://localhost:3000`, assuming the server uses
+the default Rails port.
 
 ## Local installation
 

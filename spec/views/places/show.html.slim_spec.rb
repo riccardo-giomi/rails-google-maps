@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe 'places/show' do
   before do
     assign(:place, Place.create!(
