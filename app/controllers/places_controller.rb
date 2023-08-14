@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class PlacesController < ApplicationController
-  layout 'with_googleapis', only: %i[new edit]
-
   before_action :set_place, only: %i[show edit update destroy]
 
   # GET /places or /places.json
