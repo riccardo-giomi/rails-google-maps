@@ -1,6 +1,6 @@
 # Rails Google Maps application
 
-A Ruby on Rails 7.0.6 application that uses the Google Maps API to find and save
+A Ruby on Rails 7.0.7 application that uses the Google Maps API to find and save
 places.
 
 It's an exercise based on this
@@ -11,10 +11,10 @@ from Drifting Ruby.
 
 The current Ruby on Rails version is 7.0.6
 
-|       | Required | Recommended |
-| ----- | -------- | ----------- |
-| Ruby  | ~> 3.0   | ~> 3.2      |
-| Rails | ~> 7.0   | 7.0.6       |
+|       | Required | Recommended  |
+| ----- | -------- | ------------ |
+| Ruby  | ~> 3.0   | ~> 3.2       |
+| Rails | ~> 7.0   | Latest 7.0.x |
 
 The application is configured to use PostgreSQL, but it is just one edit of
 `config/database.yml` away from using whichever DB manager you prefer.
