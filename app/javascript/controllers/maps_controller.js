@@ -4,10 +4,7 @@ export default class extends Controller {
   static targets = ["search", "map", "latitude", "longitude"]
 
   connect() {
-    console.log('maps#connect')
-    if(typeof google != "undefined") {
-      this.initialize()
-    }
+    if(typeof google != "undefined") this.initializeMap()
   }
 
   // Common entry point after Google Map initialization and controller
