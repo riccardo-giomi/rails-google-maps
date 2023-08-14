@@ -3,9 +3,15 @@
 A Ruby on Rails 7.0.6 application that uses the Google Maps API to find and save
 places.
 
-It is an exercised based on this
+It's an exercise based on this
 [tutorial](https://www.driftingruby.com/episodes/google-maps-api-with-stimulusjs)
 from Drifting Ruby.
+
+On top of the code of the tutorial, which is a bit outdated and understandably
+limited, this project:
+
+- forces a full reload for pages that use the Google Javascript API, otherwise
+  the API would not be initialized when navigating to the page;
 
 ## Versions and requirements
 
