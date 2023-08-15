@@ -7,13 +7,19 @@ html
     = csrf_meta_tags
     = csp_meta_tag
 
-    = stylesheet_link_tag 'tailwind', 'inter-font', 'data-turbo-track': 'reload'
-    = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
+    / Rails does not add nonces to stylesheets automatically, but Google will
+    / try to get the nonce value from one of these for its own inline styles.
+    = stylesheet_link_tag 'tailwind', 'inter-font', 'data-turbo-track': 'reload', nonce: content_security_policy_nonce
+    = stylesheet_link_tag 'application', 'data-turbo-track': 'reload',            nonce: content_security_policy_nonce
 
     = javascript_importmap_tags
 
+    = javascript_tag nonce: true do
+      | // Sometimes the Google script calls the callback before it is defined.
+        // This gives it something to chew on if that happens.
+        window.dispatchMapsEvent = function(...args) {}
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{google_api_key}&libraries=places&callback=dispatchMapsEvent",
-                                async: true, defer: true, "data-turbolinks-eval": false
+                                async: true, defer: true, "data-turbolinks-eval": false, nonce: true
 
   body
     main.main-container
