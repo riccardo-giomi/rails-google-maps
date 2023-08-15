@@ -10,6 +10,7 @@ from Drifting Ruby.
 Additions and modifications to the original code include:
 
 - Content Security Policy configuration, working with Google.
+- Find a decent starting point for the map in new Places.
 
 ## Versions and requirements
 

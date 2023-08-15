@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import { getBrowserLocation } from 'custom/maps_utils'
 
 export default class extends Controller {
   static targets = ["search", "map", "latitude", "longitude"]
@@ -11,9 +12,24 @@ export default class extends Controller {
   // initialization. The last one of the two that is ready calls this to
   // synchronize with the other.
   initializeMap() {
-    this.map()
-    this.marker()
-    this.autocomplete()
+    this.startPosition().then(() => {
+      this.map()
+      this.marker()
+      this.autocomplete()
+    })
+  }
+
+  async startPosition() {
+    if(this._map == undefined) {
+      if(this.latitudeTarget.value !== "" && this.longitudeTarget.value !== "") return
+      console.log(this.latitudeTarget.value)
+      console.log(this.longitudeTarget.value)
+
+      const coordinates = await getBrowserLocation()
+      console.log(coordinates)
+      this.latitudeTarget.value = coordinates.latitude
+      this.longitudeTarget.value = coordinates.longitude
+    }
   }
 
   map() {
