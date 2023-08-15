@@ -7,6 +7,10 @@ It's an exercise based on this
 [tutorial](https://www.driftingruby.com/episodes/google-maps-api-with-stimulusjs)
 from Drifting Ruby.
 
+Additions and modifications to the original code include:
+
+- Content Security Policy configuration, working with Google.
+
 ## Versions and requirements
 
 The current Ruby on Rails version is 7.0.6

@@ -14,7 +14,7 @@ Rails.application.configure do
     policy.font_src    :self, :https, :data, 'fonts.gstatic.com'
     policy.img_src     :self, :https, :data, 'maps.gstatic.com', 'maps.googleapis.com'
     policy.object_src  :none
-    policy.script_src  :self, :https, :strict_dynamic
+    policy.script_src  :strict_dynamic
     policy.style_src   :self, :https, 'fonts.googleapis.com'
     # Specify URI for violation reports
     # policy.report_uri "/csp-violation-report-endpoint"
