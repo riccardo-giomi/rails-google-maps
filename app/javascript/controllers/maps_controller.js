@@ -22,11 +22,8 @@ export default class extends Controller {
   async startPosition() {
     if(this._map == undefined) {
       if(this.latitudeTarget.value !== "" && this.longitudeTarget.value !== "") return
-      console.log(this.latitudeTarget.value)
-      console.log(this.longitudeTarget.value)
 
       const coordinates = await getBrowserLocation()
-      console.log(coordinates)
       this.latitudeTarget.value = coordinates.latitude
       this.longitudeTarget.value = coordinates.longitude
     }
